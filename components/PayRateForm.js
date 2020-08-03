@@ -9,8 +9,10 @@ export default function PayRateForm({calculateRate=f=>f, counterStatus=f=>f, res
   const [payType, setPayType] = useState("hourly")
   return (
     <>
-      <Input placeholder="Pay Rate" keyboardType="numeric" placeholderTextColor="grey" inputStyle={styles.text} value={payRate} onChangeText={setPayRate}/>
-      <Input placeholder="Estimated Tax Deductions" keyboardType="numeric" placeholderTextColor="grey"inputStyle={styles.text} value={taxDeductions} onChangeText={setTaxDeductions}/>
+      <Input placeholder="Pay Rate"  leftIcon={{type: 'font-awesome', name:'dollar', color:"gray"}} keyboardType="numeric" 
+      placeholderTextColor="grey" inputStyle={styles.text} value={payRate} onChangeText={setPayRate}/>
+      <Input placeholder="Estimated Tax Deductions"  rightIcon={{type: 'font-awesome', name:'percent', color:"gray"}}keyboardType="numeric" 
+      placeholderTextColor="grey"inputStyle={styles.text} value={taxDeductions} onChangeText={setTaxDeductions}/>
       <View style={styles.pickerContainer}>
         <Picker style={{ height: 20, width: 150 }} itemStyle={{ color: "white" }} selectedValue={payType} 
         onValueChange={(itemValue, itemIndex) => setPayType(itemValue)}>
@@ -34,6 +36,8 @@ export default function PayRateForm({calculateRate=f=>f, counterStatus=f=>f, res
         onPress={()=>{
           counterStatus(false)
           resetStatus(true)
+          setPayRate("")
+          setTaxDeductions("")
         }}></Button>
       </View>
     </>
@@ -55,6 +59,6 @@ const styles = StyleSheet.create({
     borderColor: "white",
   },
   text: {
-    color: "white",
+    color: "white"
   },
 });

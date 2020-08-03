@@ -15,7 +15,7 @@ export default function App() {
   const [counterStatus, setCounterStatus] = useState(false)
   const [resetStatus, setResetStatus] = useState(false)
   const calculateRate = (payRate, taxDeductions, payType) =>{
-    const truePay = payRate * (1- taxDeductions)
+    const truePay = payRate * (1- (taxDeductions/100))
     let hourlyRate = truePay
     if(payType==="yearly"){
       hourlyRate = truePay/(52 * 40)
