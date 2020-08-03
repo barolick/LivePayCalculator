@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 70
   },
   elapsedTimeContainer: {
-    flex: 0.5,
+    flex: 1,
     flexDirection: "row",
     paddingHorizontal: 10,
   },
